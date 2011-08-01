@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring configuration for web tier -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+    default-autowire="byName">
+    
+ 
+    <context:component-scan base-package="arg.org.promeba.mvc.controladores">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>    
+    
+    
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="urlMap">
+            <map>
+                <entry key="roles/*"><ref bean="controladorRoles"/></entry>
+                <entry key="usuarios/*"><ref bean="controladorUsers"/></entry>
+                <entry key="tiposDocumento.php/*"><ref bean="controladorTiposDocumento"/></entry>
+                <entry key="areasFuncionales/*"><ref bean="controladorAreasFuncionales"/></entry>
+                <entry key="subejecutores/*"><ref bean="controladorSubejecutores"/></entry>
+                <entry key="geografia/*"><ref bean="controladorGeografia"/></entry>
+                <entry key="solicitudes/*"><ref bean="controladorSolicitudes"/></entry>
+                <entry key="areasGeograficas/*"><ref bean="controladorAreasGeograficas"/></entry>
+                <entry key="cargos/*"><ref bean="controladorCargos"/></entry>
+                <entry key="mesasGestion/*"><ref bean="controladorMesasGestion"/></entry>
+                <entry key="personasFisicas/*"><ref bean="controladorPersonasFisicas"/></entry>
+                <entry key="personasJuridicas/*"><ref bean="controladorPersonasJuridicas"/></entry>
+                <entry key="personas/*"><ref bean="controladorPersonas"/></entry>
+                <entry key="areasFuncionalesXRol/*"><ref bean="controladorAreasFuncionalesXRol"/></entry>
+                <entry key="auxSolicitudes/*"><ref bean="controladorAuxSolicitudes"/></entry>
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="controladorRoles" class="ar.org.promeba.mvc.controladores.ControladorRoles">
+        <property name="rolSvc" ref="rolSvc"/>
+        <property name="areasFuncionalesXRolSvc" ref="areasFuncionalesXRolSvc"/>
+    </bean>
+    <bean id="controladorTiposDocumento" class="ar.org.promeba.mvc.controladores.ControladorTiposDocumento">
+        <property name="tipoDocumentoSvc" ref="tipoDocumentoSvc"/>
+    </bean>
+    <bean id="controladorUsers" class="ar.org.promeba.mvc.controladores.ControladorUsers">
+        <property name="usuarioSvc" ref="usuarioSvc"/>
+    </bean>
+    <bean id="controladorAreasFuncionales" class="ar.org.promeba.mvc.controladores.ControladorAreasFuncionales">
+        <property name="areaFuncionalSvc" ref="areaFuncionalSvc"/>
+    </bean>
+    <bean id="controladorSubejecutores" class="ar.org.promeba.mvc.controladores.ControladorSubejecutores"/>
+    
+    <bean id="controladorGeografia" class="ar.org.promeba.mvc.controladores.ControladorGeografia">
+        <property name="regionSvc" ref="regionSvc"/>
+        <property name="provinciaSvc" ref="provinciaSvc"/>
+        <property name="departamentoSvc" ref="departamentoSvc"/>
+        <property name="localidadSvc" ref="localidadSvc"/>
+    </bean>
+    
+    <bean id="controladorSolicitudes" class="ar.org.promeba.mvc.controladores.ControladorSolicitudes"/>
+    
+    <bean id="controladorAreasGeograficas" class="ar.org.promeba.mvc.controladores.ControladorAreasGeograficas">
+        <property name="svc" ref="areaGeograficaSvc"/>
+    </bean>    
+
+    <bean id="controladorCargos" class="ar.org.promeba.mvc.controladores.ControladorCargos">
+        <property name="svc" ref="cargoSvc"/>
+    </bean>    
+    
+    <bean id="controladorMesasGestion" class="ar.org.promeba.mvc.controladores.ControladorMesasGestion">
+        <property name="svc" ref="mesaGestionSvc"/>
+    </bean>      
+    
+    <bean id="controladorPersonasFisicas" class="ar.org.promeba.mvc.controladores.ControladorPersonasFisicas">
+        <property name="svc" ref="personaFisicaSvc"/>
+    </bean>
+    
+    <bean id="controladorPersonasJuridicas" class="ar.org.promeba.mvc.controladores.ControladorPersonasJuridicas">
+        <property name="svc" ref="personaJuridicaSvc"/>
+    </bean>      
+    
+    <bean id="controladorPersonas" class="ar.org.promeba.mvc.controladores.ControladorPersonas">
+        <property name="svc" ref="personaSvc"/>
+    </bean>      
+    
+    <bean id="controladorAreasFuncionalesXRol" class="ar.org.promeba.mvc.controladores.ControladorAreasFuncionalesXRol">
+        <property name="svc" ref="areasFuncionalesXRolSvc"/>
+    </bean>      
+            
+    <bean id="controladorAuxSolicitudes" class="ar.org.promeba.mvc.controladores.ControladorAuxSolicitudes" />
+    
+</beans>

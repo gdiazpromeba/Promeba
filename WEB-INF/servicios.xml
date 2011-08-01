@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+    default-autowire="byName">
+    
+    
+    <context:component-scan base-package="arg.org.promeba.svc">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>   
+    
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="mensajes" />
+    </bean>    
+    
+    
+    <bean id="usuarioSvc" class="ar.org.promeba.svc.UsuarioSvcImpl">
+        <property name="rolesXUsuarioDao" ref="rolesXUsuarioDao"/>
+    </bean>
+    
+    <bean id="tipoDocumentoSvc" class="ar.org.promeba.svc.TipoDocumentoSvcImpl"/>
+    
+    <bean id="rolSvc" class="ar.org.promeba.svc.RolSvcImpl">
+        <property name="areasFuncionalesXRolDao" ref="areasFuncionalesXRolDao"/>
+    </bean>
+    
+    <bean id="areaFuncionalSvc" class="ar.org.promeba.svc.AreaFuncionalSvcImpl"/>
+   
+    <bean id="regionSvc" class="ar.org.promeba.svc.RegionSvcImpl"/>
+    
+    <bean id="subejecutorSvc" class="ar.org.promeba.svc.SubejecutorSvcImpl"/>
+    
+    <bean id="provinciaSvc" class="ar.org.promeba.svc.ProvinciaSvcImpl"/>
+   
+    <bean id="departamentoSvc" class="ar.org.promeba.svc.DepartamentoSvcImpl"/>
+    
+    <bean id="localidadSvc" class="ar.org.promeba.svc.LocalidadSvcImpl"/>
+    
+    <bean id="solicitudSvc" class="ar.org.promeba.svc.SolicitudSvcImpl"/>
+    
+    <bean id="areaGeograficaSvc" class="ar.org.promeba.svc.AreaGeograficaSvcImpl"/>
+    
+    <bean id="cargoSvc" class="ar.org.promeba.svc.CargoSvcImpl"/>
+    
+    <bean id="mesaGestionSvc" class="ar.org.promeba.svc.MesaGestionSvcImpl"/>
+    
+    <bean id="personaFisicaSvc" class="ar.org.promeba.svc.PersonaFisicaSvcImpl">
+        <property name="domicilioDao" ref="domicilioDao"/>
+    </bean>
+    
+    <bean id="personaJuridicaSvc" class="ar.org.promeba.svc.PersonaJuridicaSvcImpl">
+        <property name="domicilioDao" ref="domicilioDao"/>
+    </bean>  
+    
+    <bean id="personaSvc" class="ar.org.promeba.svc.PersonaSvcImpl"/>
+    
+    <bean id="areasFuncionalesXRolSvc" class="ar.org.promeba.svc.AreasFuncionalesXRolSvcImpl"/>
+    
+    <bean id="fuenteSvc" class="ar.org.promeba.svc.FuenteSvcImpl"/>
+    
+    <bean id="equipamientoSocialSvc" class="ar.org.promeba.svc.EquipamientoSocialSvcImpl"/>
+    
+    <bean id="estadoMensuraSvc" class="ar.org.promeba.svc.EstadoMensuraSvcImpl"/>
+    
+    <bean id="estadoProyectoSvc" class="ar.org.promeba.svc.EstadoProyectoSvcImpl"/>
+    
+    <bean id="servicioPublicoDisponibleSvc" class="ar.org.promeba.svc.ServicioPublicoDisponibleSvcImpl"/>
+    
+    <bean id="situacionDominialSvc" class="ar.org.promeba.svc.SituacionDominialSvcImpl"/>
+    
+    <bean id="tipoInversionSvc" class="ar.org.promeba.svc.TipoInversionSvcImpl"/>
+    
+    <bean id="tipoRiesgoSvc" class="ar.org.promeba.svc.TipoRiesgoSvcImpl"/>
+    
+    <bean id="eqSocXSolicitudSvc" class="ar.org.promeba.svc.EqSocXSolicitudSvcImpl"/>
+        
+</beans>

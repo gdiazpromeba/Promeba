@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+   version="2.5"> 
+
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/datos.xml,/WEB-INF/servicios.xml,/WEB-INF/mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+   
+    <servlet>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <servlet-class>ar.org.promeba.util.init.FileUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>VacioServlet</servlet-name>
+        <servlet-class>ar.org.promeba.util.init.VacioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VacioServlet</servlet-name>
+        <url-pattern>/vacio</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletUUID</servlet-name>
+        <servlet-class>ar.org.promeba.util.init.ServletUUID</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletUUID</servlet-name>
+        <url-pattern>/idAleatorio</url-pattern>
+    </servlet-mapping>    
+    
+   
+   
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/svc/conector/*</url-pattern>
+    </servlet-mapping>     
+    
+
+
+</web-app>

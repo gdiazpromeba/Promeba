@@ -1,0 +1,70 @@
+    body {
+          color: #000000;
+          background-color: #FFFFFF;
+	      font-family: Verdana, Tahoma, sans-serif;
+          margin: 10px 0px;
+    }
+    
+    div{
+      font-family: Verdana, Tahoma, sans-serif;
+    }
+
+    img {
+       border: none;
+    }
+    
+    a:link, a:visited {
+        color: blue
+    }
+
+    th {
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 110%;
+        font-weight: normal;
+        font-style: italic;
+        background: #D2A41C;
+        text-align: left;
+    }
+
+    td {
+        color: #000000;
+	    font-family: Verdana, Tahoma, sans-serif;
+    }
+    
+    td.menu {
+        background: #FFDC75;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .code {
+        color: #000000;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 110%;
+        margin-left: 2.5em;
+    }
+    
+     #banner {
+        margin-bottom: 12px;
+     }
+
+     p#congrats {
+         margin-top: 0;
+         font-weight: bold;
+         text-align: center;
+     }
+
+     p#footer {
+         text-align: right;
+         font-size: 80%;
+     }
+     
+     *.errors {
+       color: red;
+       font-style:italic
+     }
+
+     
+     
