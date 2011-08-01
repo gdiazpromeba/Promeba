@@ -1,0 +1,249 @@
+/**
+*General
+*/
+.x-form-num-field {
+    text-align: right;
+}
+
+
+/**
+* Para el menú principal
+**/
+
+.celdaMenuLateral {
+  text-align:center;
+  width:80px;
+  height:80px;
+  display:table-cell;
+  vertical-align:middle;
+ }
+ 
+ .celdaMenuLateral:hover {
+   background-color:#ebf3fd;
+ }
+
+
+.imagenMenuLateral{
+  height:50px;
+  /*
+  display:block;
+  margin-right:auto;
+  margin-left:auto
+  */
+}
+
+.etiquetaMenuLateral {
+	vertical-align:bottom;
+	position: relative;
+	top: 5px;
+}
+
+
+/**
+* Para el árbol de costos
+**/
+
+.nodo-proceso .x-tree-node-icon{
+    background-image:url(/prototipo/recursos/iconos/engranaje_chico.png);
+}
+
+.nodo-material .x-tree-node-icon{
+    background-image:url(/prototipo/recursos/iconos/rompecabezas_chico.png);
+}
+
+.nodo-ajuste .x-tree-node-icon{
+    background-image:url(/prototipo/recursos/iconos/wrench.png);
+}
+
+
+/**
+* Para los campos de formularios hechos a mano (no FormPanels)
+**/
+.campo-formulario{
+    margin-bottom:5px;
+    margin-right:5px;
+    padding-left:5px;
+    padding-bottom:5px;
+    float:none!important;
+    font-size: 12px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-size-adjust:none;
+    font-style:normal;    
+ } 
+ 
+ /**
+ *Para agregar o quitar en las barras de grilla, etc
+ **/
+.boton-agregar{
+  background-image:url(/prototipo/recursos/iconos/add.png) !important;
+}
+
+.boton-quitar{
+  background-image:url(/prototipo/recursos/iconos/delete.png) !important;
+}
+
+/**
+* Botón de suba de archivos
+*/
+.upload-icon{
+  background-image:url(/prototipo/recursos/iconos/image_add.png) !important;
+}
+
+/**
+* Reportes y remitos 
+*/
+.titulo-pedido{
+	  font-size: 24px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:bold;    
+}
+
+.subtitulo-pedido{
+    font-size: 18px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:bold;    
+}
+
+.subtitulo-pedido-caja{
+    font-size: 18px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 5px;
+    border-style:solid;
+    border-width:2px;    
+}
+
+.encabezado-tabla-pedido{
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:bold;
+    padding: 5px;
+    border-style:solid;
+    border-width:1px;    
+    text-align:center;
+    background-color: D3D3D3;
+}
+
+
+.item-tabla-pedido{
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 5px;
+}
+
+.item-parcial-pedido{
+    padding: 0px;
+    border-style:solid;
+    border-width:1px;
+    margin: 0px;    
+}
+
+.texto-cotizacion{
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 5px;
+    text-align: justify;
+}
+
+.texto-membrete{
+    font-size: 9px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 5px;
+    text-align: left;
+}
+
+.item-tabla-cotizacion{
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+}
+
+.precio-tabla-cotizacion{
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    text-align: right;
+}
+
+.celdaEnchapado{
+  border-style:solid;
+  padding:5px;
+  border-width:1px;
+  font-family:arial,tahoma,helvetica,sans-serif;
+  width:90px;
+  text-align:center;
+  height:30px;
+}
+
+.item-tabla-remito{
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 5px;
+    vertical-align: top;
+}
+
+.cabecera-remito{
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 5px;
+}
+
+.item-tabla-factura{
+    font-size: 10px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 1px;
+    vertical-align: top;
+}
+
+
+.tick{
+    width:20px;
+    height:20px;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    padding: 1px;
+}
+
+.tickChico{
+    width:15px;
+    height:15px;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    padding: 1px;
+}
+
+.celdaTick{
+    height:30px;
+    padding:2px;
+    text-align:center;
+}
+
+.celdaTickChica{
+    height:20px;
+    padding:1px;
+    text-align:center;
+}
+
+
+.item-tabla-precios{
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 5px;
+    text-align: right;
+}
+
+.fecha-pprod {
+    font-size: 14px;
+    font-family:arial,tahoma,helvetica,sans-serif;
+    font-weight:normal;
+    padding: 5px;
+    text-align: center;
+}
+

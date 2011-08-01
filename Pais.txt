@@ -1,0 +1,240 @@
+"AD","Andorra",0
+"AE","Emiratos Árabes Unidos",0
+"AF","Afganistán",0
+"AG","Antigua y Barbuda",0
+"AI","Anguila",0
+"AL","Albania",0
+"AM","Armenia",0
+"AN","Antillas Holandesas",0
+"AO","Angola",0
+"AQ","Antártida",0
+"AR","Argentina",0
+"AS","Samoa Americana",0
+"AT","Austria",0
+"AU","Australia",0
+"AW","Aruba",0
+"AX","Islas Gland",0
+"AZ","Azerbaiyán",0
+"BA","Bosnia y Herzegovina",0
+"BB","Barbados",0
+"BD","Bangladesh",0
+"BE","Bélgica",0
+"BF","Burkina Faso",0
+"BG","Bulgaria",0
+"BH","Bahréin",0
+"BI","Burundi",0
+"BJ","Benin",0
+"BM","Bermudas",0
+"BN","Brunéi",0
+"BO","Bolivia",0
+"BR","Brasil",0
+"BS","Bahamas",0
+"BT","Bhután",0
+"BV","Isla Bouvet",0
+"BW","Botsuana",0
+"BY","Bielorrusia",0
+"BZ","Belice",0
+"CA","Canadá",0
+"CC","Islas Cocos",0
+"CD","República Democrática del Congo",0
+"CF","República Centroafricana",0
+"CG","Congo",0
+"CH","Suiza",0
+"CI","Costa de Marfil",0
+"CK","Islas Cook",0
+"CL","Chile",0
+"CM","Camerún",0
+"CN","China",0
+"CO","Colombia",0
+"CR","Costa Rica",0
+"CS","Serbia y Montenegro",0
+"CU","Cuba",0
+"CV","Cabo Verde",0
+"CX","Isla de Navidad",0
+"CY","Chipre",0
+"CZ","República Checa",0
+"DE","Alemania",0
+"DJ","Yibuti",0
+"DK","Dinamarca",0
+"DM","Dominica",0
+"DO","República Dominicana",0
+"DZ","Argelia",0
+"EC","Ecuador",0
+"EE","Estonia",0
+"EG","Egipto",0
+"EH","Sahara Occidental",0
+"ER","Eritrea",0
+"ES","España",0
+"ET","Etiopía",0
+"FI","Finlandia",0
+"FJ","Fiyi",0
+"FK","Islas Malvinas",0
+"FM","Micronesia",0
+"FO","Islas Feroe",0
+"FR","Francia",0
+"GA","Gabón",0
+"GB","Reino Unido",0
+"GD","Granada",0
+"GE","Georgia",0
+"GF","Guayana Francesa",0
+"GH","Ghana",0
+"GI","Gibraltar",0
+"GL","Groenlandia",0
+"GM","Gambia",0
+"GN","Guinea",0
+"GP","Guadalupe",0
+"GQ","Guinea Ecuatorial",0
+"GR","Grecia",0
+"GS","Islas Georgias del Sur y Sandwich del Sur",0
+"GT","Guatemala",0
+"GU","Guam",0
+"GW","Guinea-Bissau",0
+"GY","Guyana",0
+"HK","Hong Kong",0
+"HM","Islas Heard y McDonald",0
+"HN","Honduras",0
+"HR","Croacia",0
+"HT","Haití",0
+"HU","Hungría",0
+"ID","Indonesia",0
+"IE","Irlanda",0
+"IL","Israel",0
+"IN","India",0
+"IO","Territorio Británico del Océano Índico",0
+"IQ","Iraq",0
+"IR","Irán",0
+"IS","Islandia",0
+"IT","Italia",0
+"JM","Jamaica",0
+"JO","Jordania",0
+"JP","Japón",0
+"KE","Kenia",0
+"KG","Kirguistán",0
+"KH","Camboya",0
+"KI","Kiribati",0
+"KM","Comoras",0
+"KN","San Cristóbal y Nevis",0
+"KP","Corea del Norte",0
+"KR","Corea del Sur",0
+"KW","Kuwait",0
+"KY","Islas Caimán",0
+"KZ","Kazajstán",0
+"LA","Laos",0
+"LB","Líbano",0
+"LC","Santa Lucía",0
+"LI","Liechtenstein",0
+"LK","Sri Lanka",0
+"LR","Liberia",0
+"LS","Lesotho",0
+"LT","Lituania",0
+"LU","Luxemburgo",0
+"LV","Letonia",0
+"LY","Libia",0
+"MA","Marruecos",0
+"MC","Mónaco",0
+"MD","Moldavia",0
+"MG","Madagascar",0
+"MH","Islas Marshall",0
+"MK","ARY Macedonia",0
+"ML","Malí",0
+"MM","Myanmar",0
+"MN","Mongolia",0
+"MO","Macao",0
+"MP","Islas Marianas del Norte",0
+"MQ","Martinica",0
+"MR","Mauritania",0
+"MS","Montserrat",0
+"MT","Malta",0
+"MU","Mauricio",0
+"MV","Maldivas",0
+"MW","Malawi",0
+"MX","México",0
+"MY","Malasia",0
+"MZ","Mozambique",0
+"NA","Namibia",0
+"NC","Nueva Caledonia",0
+"NE","Níger",0
+"NF","Isla Norfolk",0
+"NG","Nigeria",0
+"NI","Nicaragua",0
+"NL","Países Bajos",0
+"NO","Noruega",0
+"NP","Nepal",0
+"NR","Nauru",0
+"NU","Niue",0
+"NZ","Nueva Zelanda",0
+"OM","Omán",0
+"PA","Panamá",0
+"PE","Perú",0
+"PF","Polinesia Francesa",0
+"PG","Papúa Nueva Guinea",0
+"PH","Filipinas",0
+"PK","Pakistán",0
+"PL","Polonia",0
+"PM","San Pedro y Miquelón",0
+"PN","Islas Pitcairn",0
+"PR","Puerto Rico",0
+"PS","Palestina",0
+"PT","Portugal",0
+"PW","Palau",0
+"PY","Paraguay",0
+"QA","Qatar",0
+"RE","Reunión",0
+"RO","Rumania",0
+"RU","Rusia",0
+"RW","Ruanda",0
+"SA","Arabia Saudí",0
+"SB","Islas Salomón",0
+"SC","Seychelles",0
+"SD","Sudán",0
+"SE","Suecia",0
+"SG","Singapur",0
+"SH","Santa Helena",0
+"SI","Eslovenia",0
+"SJ","Svalbard y Jan Mayen",0
+"SK","Eslovaquia",0
+"SL","Sierra Leona",0
+"SM","San Marino",0
+"SN","Senegal",0
+"SO","Somalia",0
+"SR","Surinam",0
+"ST","Santo Tomé y Príncipe",0
+"SV","El Salvador",0
+"SY","Siria",0
+"SZ","Suazilandia",0
+"TC","Islas Turcas y Caicos",0
+"TD","Chad",0
+"TF","Territorios Australes Franceses",0
+"TG","Togo",0
+"TH","Tailandia",0
+"TJ","Tayikistán",0
+"TK","Tokelau",0
+"TL","Timor Oriental",0
+"TM","Turkmenistán",0
+"TN","Túnez",0
+"TO","Tonga",0
+"TR","Turquía",0
+"TT","Trinidad y Tobago",0
+"TV","Tuvalu",0
+"TW","Taiwán",0
+"TZ","Tanzania",0
+"UA","Ucrania",0
+"UG","Uganda",0
+"UM","Islas ultramarinas de Estados Unidos",0
+"US","Estados Unidos",0
+"UY","Uruguay",0
+"UZ","Uzbekistán",0
+"VA","Ciudad del Vaticano",0
+"VC","San Vicente y las Granadinas",0
+"VE","Venezuela",0
+"VG","Islas Vírgenes Británicas",0
+"VI","Islas Vírgenes de los Estados Unidos",0
+"VN","Vietnam",0
+"VU","Vanuatu",0
+"WF","Wallis y Futuna",0
+"WS","Samoa",0
+"YE","Yemen",0
+"YT","Mayotte",0
+"ZA","Sudáfrica",0
+"ZM","Zambia",0
+"ZW","Zimbabue",0

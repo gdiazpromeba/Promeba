@@ -1,0 +1,24 @@
+"A","SALTA               ","A",0
+"B","BUENOS AIRES        ","B",0
+"C","CAPITAL FEDERAL     ","C",0
+"D","SAN LUIS            ","D",0
+"E","ENTRE RIOS          ","E",0
+"F","LA RIOJA            ","F",0
+"G","SANTIAGO DEL ESTERO ","G",0
+"H","CHACO               ","H",0
+"J","SAN JUAN            ","J",0
+"K","CATAMARCA           ","K",0
+"L","LA PAMPA            ","L",0
+"M","MENDOZA             ","M",0
+"N","MISIONES            ","N",0
+"P","FORMOSA             ","P",0
+"Q","NEUQUEN             ","Q",0
+"R","RIO NEGRO           ","R",0
+"S","SANTA FE            ","S",0
+"T","TUCUMAN             ","T",0
+"U","CHUBUT              ","U",0
+"V","TIERRA DEL FUEGO    ","V",0
+"W","CORRIENTES          ","W",0
+"X","CORDOBA             ","X",0
+"Y","JUJUY               ","Y",0
+"Z","SANTA CRUZ          ","Z",0

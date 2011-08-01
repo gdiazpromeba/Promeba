@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ProMeBa</title>
+    <link rel="stylesheet" type="text/css" href="/prototipo/ext-3.2.1/resources/css/ext-all.css" />
+    <!-- extensiones -->
+    <link rel="stylesheet" type="text/css" href="/prototipo/ext-3.2.1/examples/ux/css/Spinner.css" />
+    <link rel="stylesheet" type="text/css" href="/prototipo/ext-3.2.1/examples/ux/fileuploadfield/css/fileuploadfield.css" />
+
+
+ 	<!-- LIBS -->
+ 	  <script type="text/javascript" src="/prototipo/ext-3.2.1/adapter/ext/ext-base.js"></script>
+ 	  <!--  <script type="text/javascript" src="/prototipo/ext-3.2.1/ext-all-debug.js"></script> -->
+ 	  <!-- <script type="text/javascript" src="/prototipo/ext-3.2.1/ext-all-debug-w-comments.js"></script> -->
+ 	  <!--<script type="text/javascript" src="/prototipo/ext-3.2.1/ext-all.js"></script>-->
+
+
+ 	  <!-- extensions -->
+    <script type="text/javascript" src="/prototipo/ext-3.2.1/ext-all-debug.js"></script>
+
+    <script type="text/javascript" src="/prototipo/ext-3.2.1/examples/ux/RowEditor.js"></script>
+    <script type="text/javascript" src="/prototipo/ext-3.2.1/examples/ux/Spinner.js"></script>
+    <script type="text/javascript" src="/prototipo/ext-3.2.1/examples/ux/SpinnerField.js"></script>
+    <script type="text/javascript" src="/prototipo/ext-3.2.1/examples/ux/fileuploadfield/FileUploadField.js"></script>
+
+ 	<!-- ENDLIBS -->
+
+    <!-- configuración -->
+    <script type="text/javascript" src="/prototipo/config.js"></script>
+
+    <!-- estilo -->
+    <link rel="stylesheet" type="text/css" href="/prototipo/recursos/css/estilo.css" />
+
+    <!-- utilidades -->
+    <script type="text/javascript" src="/prototipo/util/MonedaUtils.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/util/FechaUtils.js"></script>
+    
+
+    <!-- controles -->
+    <script type="text/javascript" src="/prototipo/iu/controles/Fecha.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/controles/Grilla.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/controles/Dinero.js"></script>
+
+    <!-- stores -->
+    <script type="text/javascript" src="/prototipo/iu/combos/creacion.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/usuarios.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/roles.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/tiposDocumento.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/departamentos.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/localidades.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/subejecutores.js"></script>
+    <!-- combos -->
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboFijo.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboRoles.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboAreasFuncionales.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboTiposDocumento.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboRegiones.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboProvincias.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboDepartamentos.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboLocalidades.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboSubejecutores.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboEquipamientosSociales.js"></script>
+    
+   
+    <!-- util -->
+    <script type="text/javascript" src="/prototipo/iu/util/ControlSuba.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/util/ControlPersonas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/util/LinkButton.js"></script>
+    
+
+
+    
+    <!-- abm -->
+    <script type="text/javascript" src="/prototipo/iu/abm/GrillaABM.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/DomicilioPanel.js"></script>
+    <script type="text/javascript" src="/prototipo/recursos/es_AR.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/abm.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/cabeceraDetalle.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/panBusquedaAbm.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/panFormAbm.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/panFormDetalleAbm.js"></script>
+    <!-- usuarios -->
+    <script type="text/javascript" src="/prototipo/iu/abm/users/FormUsers.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/users/GrillaUsers.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/users/BusquedaUsers.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/users/FormRoles_x_User.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/users/GrillaRoles_x_User.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/users/PanelUsuarios.js"></script>
+    <!-- personas físicas -->
+    <script type="text/javascript" src="/prototipo/iu/abm/personasFisicas/FormPersonasFisicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasFisicas/GrillaPersonasFisicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasFisicas/BusquedaPersonasFisicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasFisicas/PanelPersonasFisicas.js"></script>
+    <!-- personas jurídicas -->
+    <script type="text/javascript" src="/prototipo/iu/abm/personasJuridicas/FormPersonasJuridicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasJuridicas/GrillaPersonasJuridicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasJuridicas/BusquedaPersonasJuridicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasJuridicas/PanelPersonasJuridicas.js"></script>
+    <!-- subejecutores -->
+    <script type="text/javascript" src="/prototipo/iu/abm/subejecutores/FormSubejecutores.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/subejecutores/GrillaSubejecutores.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/subejecutores/BusquedaSubejecutores.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/subejecutores/PanelSubejecutores.js"></script>
+    <!-- áreas geográficas -->
+    <script type="text/javascript" src="/prototipo/iu/abm/areasGeograficas/FormAreasGeograficas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/areasGeograficas/GrillaAreasGeograficas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/areasGeograficas/BusquedaAreasGeograficas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/areasGeograficas/PanelAreasGeograficas.js"></script>
+    <!-- roles -->
+    <script type="text/javascript" src="/prototipo/iu/abm/roles/FormRoles.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/roles/GrillaRoles.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/roles/BusquedaRoles.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/roles/PanelRoles.js"></script>
+    <!-- áreas funcionales x rol -->
+    <script type="text/javascript" src="/prototipo/iu/abm/areasFuncionalesXRol/FormAreasFuncionalesXRol.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/areasFuncionalesXRol/GrillaAreasFuncionalesXRol.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/areasFuncionalesXRol/BusquedaAreasFuncionalesXRol.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/areasFuncionalesXRol/PanelAreasFuncionalesXRol.js"></script>    
+    <!-- cargos -->
+    <script type="text/javascript" src="/prototipo/iu/abm/cargos/FormCargos.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/cargos/GrillaCargos.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/cargos/BusquedaCargos.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/cargos/PanelCargos.js"></script>
+    <!-- mesas de gestión -->
+    <script type="text/javascript" src="/prototipo/iu/abm/mesasGestion/FormMesasGestion.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/mesasGestion/GrillaMesasGestion.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/mesasGestion/BusquedaMesasGestion.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/mesasGestion/PanelMesasGestion.js"></script>
+    
+    <!-- áreas funcionales -->
+    <script type="text/javascript" src="/prototipo/iu/abm/areasFuncionales/FormAreasFuncionales.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/areasFuncionales/GrillaAreasFuncionales.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/areasFuncionales/BusquedaAreasFuncionales.js"></script>
+    <!-- solicitues -->
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/FormSolicitudes.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/GrillaSolicitudes.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/BusquedaSolicitudes.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/PanelSolicitudes.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/FormEqSocXSolicitud.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/GrillaEqSocXSolicitud.js"></script>
+    
+    
+    <!-- controles que requieren otras cosas -->
+    <script type="text/javascript" src="/prototipo/iu/controles/personas/ControlPersonas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/controles/personas/GrillaPersonas.js"></script>
+    
+    
+    
+    
+    
+    <script type="text/javascript" src="/prototipo/iu/procesos/seguridad/CambioClave.js"></script>
+    
+    <!-- inicio -->
+    <script type="text/javascript" src="/prototipo/iu/login/VentanaLogin.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/principal/MenuAcordeon.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/principal/paneles.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/principal/panelesReporte.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/principal/PanelMenu.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/principal/inicio.js"></script>
+
+</head>
+<body></body>
+
+</html>

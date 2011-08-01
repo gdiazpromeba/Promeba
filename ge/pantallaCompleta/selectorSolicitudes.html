@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Ejemplo de GE con regiones y provincias</title>
+    <link rel="stylesheet" type="text/css" href="../../ext-3.2.1/resources/css/ext-all.css" />
+
+    <!-- GC -->
+ 	<!-- LIBS -->
+ 	<script type="text/javascript" src="../../ext-3.2.1/adapter/ext/ext-base.js"></script>
+ 	<!-- ENDLIBS -->
+
+    <script type="text/javascript" src="../../ext-3.2.1/ext-all-debug.js"></script>
+
+<!-- Includes for V2 of Google Maps -->
+<!-- GMaps API Key that works for www.extjs.com -->
+<!--<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAUCG2rlIeVFJ07rCgVUYjhhSVbRpeAZk72H9nRSWIwLg0s1ul-BRlbCt360qbQumadan9ZlGxlCWzqg" type="text/javascript"></script>-->
+<!-- GMaps API Key that works for localhost -->
+<!--<script src="http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAJDLv3q8BFBryRorw-851MRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxTyuslsNlFqyphYqv1PCUD8WrZA2A" type="text/javascript"></script>-->
+
+<!-- Includes for V3 of Google Maps -->
+<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=sp"></script>-->
+   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&language=es"></script>
+
+
+
+
+ 	<!-- ENDLIBS -->
+
+    <!-- configuración -->
+    <script type="text/javascript" src="/prototipo/config.js"></script>
+
+    <!-- estilo -->
+    <link rel="stylesheet" type="text/css" href="/prototipo/recursos/css/estilo.css" />
+
+    <!-- utilidades -->
+    <script type="text/javascript" src="/prototipo/iu/util/FechaUtils.js"></script>
+    
+
+    <!-- controles -->
+    <script type="text/javascript" src="/prototipo/iu/controles/Fecha.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/controles/Grilla.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/controles/Dinero.js"></script>
+
+    <!-- stores -->
+    <script type="text/javascript" src="/prototipo/iu/combos/creacion.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/usuarios.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/roles.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/tiposDocumento.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/departamentos.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/localidades.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/stores/subejecutores.js"></script>
+    <!-- combos -->
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboFijo.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboRoles.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboAreasFuncionales.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboTiposDocumento.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboRegiones.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboProvincias.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboDepartamentos.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboLocalidades.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboSubejecutores.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/combos/ComboEquipamientosSociales.js"></script>
+    
+   
+    <!-- util -->
+    <script type="text/javascript" src="/prototipo/iu/util/ControlSuba.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/controles/personas/ControlPersonas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/util/LinkButton.js"></script>
+    
+
+
+    
+    <!-- abm -->
+    <script type="text/javascript" src="/prototipo/iu/abm/GrillaABM.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/DomicilioPanel.js"></script>
+    <script type="text/javascript" src="/prototipo/recursos/es_AR.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/abm.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/cabeceraDetalle.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/panBusquedaAbm.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/panFormAbm.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/panFormDetalleAbm.js"></script>
+
+    <!-- personas físicas -->
+    <script type="text/javascript" src="/prototipo/iu/abm/personasFisicas/FormPersonasFisicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasFisicas/GrillaPersonasFisicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasFisicas/BusquedaPersonasFisicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasFisicas/PanelPersonasFisicas.js"></script>
+    <!-- personas jurídicas -->
+    <script type="text/javascript" src="/prototipo/iu/abm/personasJuridicas/FormPersonasJuridicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasJuridicas/GrillaPersonasJuridicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasJuridicas/BusquedaPersonasJuridicas.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/personasJuridicas/PanelPersonasJuridicas.js"></script>
+    <!-- solicitues -->
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/FormSolicitudes.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/GrillaSolicitudes.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/BusquedaSolicitudes.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/PanelSolicitudes.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/FormEqSocXSolicitud.js"></script>
+    <script type="text/javascript" src="/prototipo/iu/abm/solicitudes/GrillaEqSocXSolicitud.js"></script>
+    
+    
+
+
+    <!-- Library for V3 of Google Maps -->
+    <script src="../Ext.ux.GMapPanel3.js"></script>
+    <script src="selectorSolicitudes.js"></script>
+
+</head>
+<body>
+</body>
+</html>
