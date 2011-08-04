@@ -86,12 +86,12 @@ Ext.onReady( function() {
 		store:  new Ext.data.SimpleStore({
 			fields:['columna1', 'columna2'],
 			data:  [
-			[['piezas.png', 'Solicitudes', creaPanSolicitudes]]
+			[['piezas.png', 'Solicitudes', creaPanSolicitudes], ['argentina.png', 'Selección', creaVentanaSolicitudes]]
 		]
 		})	
 	});
 
-	var panelOtraArea = new PanelMenu({
+    var panelOtraArea = new PanelMenu({
 		title: 'Otra área'
 	});
 

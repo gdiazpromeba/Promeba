@@ -19,7 +19,7 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
 	        {fieldLabel: 'Estado', xtype: 'combo', id: 'comboEstados', name: 'comboEstados', itemId: 'comboEstados', ref: '../comboEstados', allowBlank: false, 
 	          store: new Ext.data.SimpleStore({
 	          fields: ['descripcionEstado'],
-	    	     data: [["Ingresada"],["Seleccionada"],["Priorizada"],["Aprobada"]]
+	    	     data: [["Ingresada"],["Seleccionada"],["Aprobada"], ["En ejecución"],["Finalizada"]]
 	    	    }),
               displayField: 'descripcionEstado', valueField: 'descripcionEstado', selectOnFocus: true, mode: 'local', typeAhead: false, editable: false,
               hiddenName: 'estado', triggerAction: 'all'
