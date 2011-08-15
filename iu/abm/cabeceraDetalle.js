@@ -56,13 +56,28 @@ function cabeceraDetalle(grillaDetalle, formDetalle, grillaCabecera) {
       'rowselect',
       function(sm, indice, registro) {
         var storeDetalle=grillaDetalle.getStore();
-        formDetalle.setValorIdPadre(registro.id);
-        formDetalle.setTitle(grillaCabecera.tituloHijo());
-        var paginacion = grillaDetalle.getBottomToolbar();
-        storeDetalle.setBaseParam('valorIdPadre', registro.id);
-        storeDetalle.setBaseParam('start', paginacion.cursor);
-        storeDetalle.setBaseParam('limit', paginacion.pageSize);        
-        storeDetalle.load();
+        //a veces la form de detalle no está propiamente cargada todavía
+        if (formDetalle.getComponent('valorIdPadre')!=undefined){
+          formDetalle.setValorIdPadre(registro.id, formDetalle);
+          formDetalle.setTitle(grillaCabecera.tituloHijo());
+          var paginacion = grillaDetalle.getBottomToolbar();
+          storeDetalle.setBaseParam('valorIdPadre', registro.id);
+          storeDetalle.setBaseParam('start', paginacion.cursor);
+          storeDetalle.setBaseParam('limit', paginacion.pageSize);        
+          storeDetalle.load();
+        }else{
+          formDetalle.on('render', function (me){
+          	alert('mandando valorIdPadre ahora');
+            me.setValorIdPadre(registro.id, me);
+            me.setTitle(grillaCabecera.tituloHijo());
+            var paginacion = grillaDetalle.getBottomToolbar();
+            storeDetalle.setBaseParam('valorIdPadre', registro.id);
+            storeDetalle.setBaseParam('start', paginacion.cursor);
+            storeDetalle.setBaseParam('limit', paginacion.pageSize);        
+            storeDetalle.load();
+          }, this);
+        }
+
   });   
   
 

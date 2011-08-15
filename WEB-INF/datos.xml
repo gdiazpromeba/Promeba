@@ -69,6 +69,12 @@
     
     <bean id="eqSocXSolicitudDao" class="ar.org.promeba.dao.EqSocXSolicitudDaoImpl"/>
     
+    <bean id="tirXSolicitudDao" class="ar.org.promeba.dao.TirXSolicitudDaoImpl"/>
+    
+    <bean id="spdXSolicitudDao" class="ar.org.promeba.dao.SpdXSolicitudDaoImpl"/>
+    
+    <bean id="esmXSolicitudDao" class="ar.org.promeba.dao.EsmXSolicitudDaoImpl"/>
+    
     <bean id="poligonoProvinciaDao" class="ar.org.promeba.dao.PoligonoProvinciaDaoImpl"/>
     
     <bean id="poligonoRegionDao" class="ar.org.promeba.dao.PoligonoRegionDaoImpl"/>    

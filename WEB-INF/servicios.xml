@@ -77,5 +77,11 @@
     <bean id="tipoRiesgoSvc" class="ar.org.promeba.svc.TipoRiesgoSvcImpl"/>
     
     <bean id="eqSocXSolicitudSvc" class="ar.org.promeba.svc.EqSocXSolicitudSvcImpl"/>
+    
+    <bean id="tirXSolicitudSvc" class="ar.org.promeba.svc.TirXSolicitudSvcImpl"/>
+    
+    <bean id="esmXSolicitudSvc" class="ar.org.promeba.svc.EsmXSolicitudSvcImpl"/>
+    
+    <bean id="spdXSolicitudSvc" class="ar.org.promeba.svc.SpdXSolicitudSvcImpl"/>
         
 </beans>

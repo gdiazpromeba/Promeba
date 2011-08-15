@@ -97,13 +97,12 @@ public class ControladorAuxSolicitudes extends AbstractController {
 			return mav;
 
 		} else if (uri.endsWith("seleccionaEstadosMensura")) {
-			int start = Integer.parseInt(request.getParameter("start"));
-			int limit = Integer.parseInt(request.getParameter("limit"));
+			//int start = Integer.parseInt(request.getParameter("start"));
+			//int limit = Integer.parseInt(request.getParameter("limit"));
 			String nombre = request.getParameter("nombre");
 
 			JSONArray datos = new JSONArray();
-			List<EstadoMensura> beans = estadoMensuraSvc.selecciona(start,
-					limit, nombre);
+			List<EstadoMensura> beans = estadoMensuraSvc.selecciona(0, 100, nombre);
 			int cuenta = estadoMensuraSvc.cuenta(nombre);
 			for (EstadoMensura bean : beans) {
 				Map<String, Object> fila = new HashMap<String, Object>();
@@ -165,12 +164,12 @@ public class ControladorAuxSolicitudes extends AbstractController {
 			return mav;
 			
 		} else if (uri.endsWith("seleccionaServiciosPublicosDisponibles")) {
-			int start = Integer.parseInt(request.getParameter("start"));
-			int limit = Integer.parseInt(request.getParameter("limit"));
+//			int start = Integer.parseInt(request.getParameter("start"));
+//			int limit = Integer.parseInt(request.getParameter("limit"));
 			String nombre = request.getParameter("nombre");
 
 			JSONArray datos = new JSONArray();
-			List<ServicioPublicoDisponible> beans = servicioPublicoDisponibleSvc.selecciona(start, limit, nombre);
+			List<ServicioPublicoDisponible> beans = servicioPublicoDisponibleSvc.selecciona(0, 100, nombre);
 			int cuenta = fuenteSvc.cuenta(nombre);
 			for (ServicioPublicoDisponible bean : beans) {
 				Map<String, Object> fila = new HashMap<String, Object>();
@@ -231,12 +230,12 @@ public class ControladorAuxSolicitudes extends AbstractController {
 			return mav;
 			
 		} else if (uri.endsWith("seleccionaTiposRiesgo")) {
-			int start = Integer.parseInt(request.getParameter("start"));
-			int limit = Integer.parseInt(request.getParameter("limit"));
+//			int start = Integer.parseInt(request.getParameter("start"));
+//			int limit = Integer.parseInt(request.getParameter("limit"));
 			String nombre = request.getParameter("nombre");
 
 			JSONArray datos = new JSONArray();
-			List<TipoRiesgo> beans = tipoRiesgoSvc.selecciona(start, limit, nombre);
+			List<TipoRiesgo> beans = tipoRiesgoSvc.selecciona(0, 100, nombre);
 			int cuenta = tipoRiesgoSvc.cuenta(nombre);
 			for (TipoRiesgo bean : beans) {
 				Map<String, Object> fila = new HashMap<String, Object>();
@@ -256,8 +255,7 @@ public class ControladorAuxSolicitudes extends AbstractController {
 			
 
 		} else {
-			throw new OperationNotSupportedException("La url " + uri
-					+ " no se puede procesar");
+			throw new OperationNotSupportedException("La url " + uri + " no se puede procesar");
 		}
 	}
 
