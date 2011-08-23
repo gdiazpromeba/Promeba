@@ -29,7 +29,7 @@ import ar.org.promeba.svc.TirXSolicitudSvc;
 import ar.org.promeba.util.json.JSONArray;
 import ar.org.promeba.util.json.JSONObject;
 
-public class ControladorSolicitudes extends AbstractController {
+public class ControladorProyectos extends AbstractController {
 	
 	@Autowired
 	private SolicitudSvc solicitudSvc;

@@ -25,7 +25,11 @@ GrillaSolicitudes = Ext.extend(Ext.grid.GridPanel, {
                     {name : 'fechaIngresoPOA', type : 'date',  allowBlank : false,  dateFormat: 'Y-m-d'  },
                     {name : 'fechaIngresoPGEP', type : 'date',  allowBlank : false,  dateFormat: 'Y-m-d'  },
                     {name : 'fechaIngresoPA', type : 'date',  allowBlank : false,  dateFormat: 'Y-m-d'  },
-                    {name : 'vinculo', type : 'string', allowBlank : true }
+                    {name : 'vinculo', type : 'string', allowBlank : true },
+                    {name : 'situacionDominialId', type : 'string', allowBlank : true },
+                    {name : 'situacionDominialNombre', type : 'string', allowBlank : true },
+                    {name : 'tipoInversionId', type : 'string', allowBlank : true },
+                    {name : 'tipoInversionNombre', type : 'string', allowBlank : true }
                   ]
         		}),
 		        autoDestroy : true

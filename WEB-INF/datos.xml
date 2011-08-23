@@ -13,70 +13,72 @@
         <property name="maxActive" value="10" />
     </bean>    
     
-    <bean id="usuarioDao" class="ar.org.promeba.dao.UsuarioDaoImpl"/>
+    <bean id="usuarioDao" class="ar.org.promeba.dao.impl.UsuarioDaoImpl"/>
     
-    <bean id="tipoDocumentoDao" class="ar.org.promeba.dao.TipoDocumentoDaoImpl"/>
+    <bean id="tipoDocumentoDao" class="ar.org.promeba.dao.impl.TipoDocumentoDaoImpl"/>
     
-    <bean id="rolDao" class="ar.org.promeba.dao.RolDaoImpl"/>
+    <bean id="rolDao" class="ar.org.promeba.dao.impl.RolDaoImpl"/>
     
-    <bean id="rolesXUsuarioDao" class="ar.org.promeba.dao.RolesXUsuarioDaoImpl"/>
+    <bean id="rolesXUsuarioDao" class="ar.org.promeba.dao.impl.RolesXUsuarioDaoImpl"/>
     
-    <bean id="areasFuncionalesXRolDao" class="ar.org.promeba.dao.AreasFuncionalesXRolDaoImpl"/>
+    <bean id="areasFuncionalesXRolDao" class="ar.org.promeba.dao.impl.AreasFuncionalesXRolDaoImpl"/>
     
-    <bean id="areaFuncionalDao" class="ar.org.promeba.dao.AreaFuncionalDaoImpl"/>
+    <bean id="areaFuncionalDao" class="ar.org.promeba.dao.impl.AreaFuncionalDaoImpl"/>
     
-    <bean id="subejecutorDao" class="ar.org.promeba.dao.SubejecutorDaoImpl"/>
+    <bean id="subejecutorDao" class="ar.org.promeba.dao.impl.SubejecutorDaoImpl"/>
     
-    <bean id="regionDao" class="ar.org.promeba.dao.RegionDaoImpl"/>
+    <bean id="regionDao" class="ar.org.promeba.dao.impl.RegionDaoImpl"/>
     
-    <bean id="provinciaDao" class="ar.org.promeba.dao.ProvinciaDaoImpl"/>
+    <bean id="provinciaDao" class="ar.org.promeba.dao.impl.ProvinciaDaoImpl"/>
     
-    <bean id="departamentoDao" class="ar.org.promeba.dao.DepartamentoDaoImpl"/>
+    <bean id="departamentoDao" class="ar.org.promeba.dao.impl.DepartamentoDaoImpl"/>
     
-    <bean id="localidadDao" class="ar.org.promeba.dao.LocalidadDaoImpl"/>
+    <bean id="localidadDao" class="ar.org.promeba.dao.impl.LocalidadDaoImpl"/>
    
-    <bean id="solicitudDao" class="ar.org.promeba.dao.SolicitudDaoImpl"/>
+    <bean id="solicitudDao" class="ar.org.promeba.dao.impl.SolicitudDaoImpl"/>
     
-    <bean id="domicilioDao" class="ar.org.promeba.dao.DomicilioDaoImpl"/>
+    <bean id="domicilioDao" class="ar.org.promeba.dao.impl.DomicilioDaoImpl"/>
     
-    <bean id="areaGeograficaDao" class="ar.org.promeba.dao.AreaGeograficaDaoImpl"/>
+    <bean id="areaGeograficaDao" class="ar.org.promeba.dao.impl.AreaGeograficaDaoImpl"/>
     
-    <bean id="cargoDao" class="ar.org.promeba.dao.CargoDaoImpl"/>
+    <bean id="cargoDao" class="ar.org.promeba.dao.impl.CargoDaoImpl"/>
     
-    <bean id="mesaGestionDao" class="ar.org.promeba.dao.MesaGestionDaoImpl"/>
+    <bean id="mesaGestionDao" class="ar.org.promeba.dao.impl.MesaGestionDaoImpl"/>
     
-    <bean id="personaFisicaDao" class="ar.org.promeba.dao.PersonaFisicaDaoImpl"/>
+    <bean id="personaFisicaDao" class="ar.org.promeba.dao.impl.PersonaFisicaDaoImpl"/>
     
-    <bean id="personaJuridicaDao" class="ar.org.promeba.dao.PersonaJuridicaDaoImpl"/>
+    <bean id="personaJuridicaDao" class="ar.org.promeba.dao.impl.PersonaJuridicaDaoImpl"/>
     
-    <bean id="personaDao" class="ar.org.promeba.dao.PersonaDaoImpl"/>
+    <bean id="personaDao" class="ar.org.promeba.dao.impl.PersonaDaoImpl"/>
     
-    <bean id="fuenteDao" class="ar.org.promeba.dao.FuenteDaoImpl"/>
+    <bean id="fuenteDao" class="ar.org.promeba.dao.impl.FuenteDaoImpl"/>
     
-    <bean id="estadoMensuraDao" class="ar.org.promeba.dao.EstadoMensuraDaoImpl"/>
+    <bean id="estadoMensuraDao" class="ar.org.promeba.dao.impl.EstadoMensuraDaoImpl"/>
     
-    <bean id="equipamientoSocialDao" class="ar.org.promeba.dao.EquipamientoSocialDaoImpl"/>
+    <bean id="equipamientoSocialDao" class="ar.org.promeba.dao.impl.EquipamientoSocialDaoImpl"/>
     
-    <bean id="estadoProyectoDao" class="ar.org.promeba.dao.EstadoProyectoDaoImpl"/>
+    <bean id="estadoProyectoDao" class="ar.org.promeba.dao.impl.EstadoProyectoDaoImpl"/>
     
-    <bean id="servicioPublicoDisponibleDao" class="ar.org.promeba.dao.ServicioPublicoDisponibleDaoImpl"/>
+    <bean id="servicioPublicoDisponibleDao" class="ar.org.promeba.dao.impl.ServicioPublicoDisponibleDaoImpl"/>
     
-    <bean id="situacionDominialDao" class="ar.org.promeba.dao.SituacionDominialDaoImpl"/>
+    <bean id="situacionDominialDao" class="ar.org.promeba.dao.impl.SituacionDominialDaoImpl"/>
     
-    <bean id="tipoInversionDao" class="ar.org.promeba.dao.TipoInversionDaoImpl"/>
+    <bean id="tipoInversionDao" class="ar.org.promeba.dao.impl.TipoInversionDaoImpl"/>
     
-    <bean id="tipoRiesgoDao" class="ar.org.promeba.dao.TipoRiesgoDaoImpl"/>
+    <bean id="tipoRiesgoDao" class="ar.org.promeba.dao.impl.TipoRiesgoDaoImpl"/>
     
-    <bean id="eqSocXSolicitudDao" class="ar.org.promeba.dao.EqSocXSolicitudDaoImpl"/>
+    <bean id="eqSocXSolicitudDao" class="ar.org.promeba.dao.impl.EqSocXSolicitudDaoImpl"/>
     
-    <bean id="tirXSolicitudDao" class="ar.org.promeba.dao.TirXSolicitudDaoImpl"/>
+    <bean id="tirXSolicitudDao" class="ar.org.promeba.dao.impl.TirXSolicitudDaoImpl"/>
     
-    <bean id="spdXSolicitudDao" class="ar.org.promeba.dao.SpdXSolicitudDaoImpl"/>
+    <bean id="spdXSolicitudDao" class="ar.org.promeba.dao.impl.SpdXSolicitudDaoImpl"/>
     
-    <bean id="esmXSolicitudDao" class="ar.org.promeba.dao.EsmXSolicitudDaoImpl"/>
+    <bean id="esmXSolicitudDao" class="ar.org.promeba.dao.impl.EsmXSolicitudDaoImpl"/>
     
-    <bean id="poligonoProvinciaDao" class="ar.org.promeba.dao.PoligonoProvinciaDaoImpl"/>
+    <bean id="poligonoProvinciaDao" class="ar.org.promeba.dao.impl.PoligonoProvinciaDaoImpl"/>
     
-    <bean id="poligonoRegionDao" class="ar.org.promeba.dao.PoligonoRegionDaoImpl"/>    
+    <bean id="poligonoRegionDao" class="ar.org.promeba.dao.impl.PoligonoRegionDaoImpl"/>
+    
+    <bean id="proyectoDao" class="ar.org.promeba.dao.impl.ProyectoDaoImpl"/>    
     
 </beans>

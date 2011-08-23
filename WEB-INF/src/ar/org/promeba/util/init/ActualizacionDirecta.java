@@ -30,10 +30,10 @@ import ar.org.promeba.beans.PersonaJuridica;
 import ar.org.promeba.beans.Provincia;
 import ar.org.promeba.beans.Solicitud;
 import ar.org.promeba.beans.Subejecutor;
-import ar.org.promeba.svc.PersonaJuridicaSvcImpl;
-import ar.org.promeba.svc.ProvinciaSvcImpl;
-import ar.org.promeba.svc.SolicitudSvcImpl;
-import ar.org.promeba.svc.SubejecutorSvcImpl;
+import ar.org.promeba.svc.impl.PersonaJuridicaSvcImpl;
+import ar.org.promeba.svc.impl.ProvinciaSvcImpl;
+import ar.org.promeba.svc.impl.SolicitudSvcImpl;
+import ar.org.promeba.svc.impl.SubejecutorSvcImpl;
 
 public class ActualizacionDirecta {
 

@@ -35,6 +35,8 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
               {fieldLabel: 'Ingreso PGEP',  itemId: 'fechaIngresoPGEP', name: 'fechaIngresoPGEP', xtype : 'datefield', format: 'd/m/Y', allowBlank : true},
               {fieldLabel: 'Ingreso PA',  itemId: 'fechaIngresoPA', name: 'fechaIngresoPA', xtype : 'datefield', format: 'd/m/Y', allowBlank : true},
               new ControlSuba({fieldLabel: 'Vínculo', width: 200, itemId: 'vinculoSolicitud'}),
+              {xtype: 'combosituacionesdominiales', itemId: 'comboSituacionesDominiales', hiddenName: 'situacionDominialId', hiddenId: 'situacionDominialId', allowBlank: false},
+              {xtype: 'combotiposinversion', itemId: 'comboTiposInversion', hiddenName: 'tipoInversionId', hiddenId: 'tipoInversionId', allowBlank: false},
             ]
           }//del fieldset 'colDer'
       ],      
@@ -57,6 +59,13 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
          colDer.getComponent('fechaIngresoPA').setValue(record.data['fechaIngresoPA']);
          colDer.getComponent('fechaIngresoPGEP').setValue(record.data['fechaIngresoPGEP']);
          colDer.getComponent('vinculoSolicitud').setValue(record.data['vinculo']);
+         colDer.getComponent('comboSituacionesDominiales').setRawValue(record.get('situacionDominialNombre'));
+         Ext.get('situacionDominialId').dom.value=record.get('situacionDominialId');
+         colDer.getComponent('comboTiposInversion').setRawValue(record.get('tipoInversionNombre'));
+         Ext.get('tipoInversionId').dom.value=record.get('tipoInversionId');
+         
+
+         
   	   },
   	   
   	   pueblaFormEnRegistro : function(record){
@@ -75,6 +84,10 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
     	 record.data['fechaIngresoPA']=  colDer.getComponent('fechaIngresoPA').getValue();
     	 record.data['fechaIngresoPGEP']=  colDer.getComponent('fechaIngresoPGEP').getValue();
     	 record.data['vinculo']=  colDer.getComponent('vinculoSolicitud').getValue();
+    	 record.data['situacionDominialNombre']=  colDer.getComponent('comboSituacionesDominiales').getRawValue();
+    	 record.data['situacionDominialId'] = Ext.get('situacionDominialId').dom.value;
+         record.data['tipoInversionNombre']=  colDer.getComponent('comboTiposInversion').getRawValue();
+    	 record.data['tipoInversionId'] = Ext.get('tipoInversionId').dom.value;
   		 record.commit();
   	   },  	   
   	   
@@ -97,7 +110,12 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
    		   if (!colDer.getComponent('fechaDesde').isValid()){
   			   valido=false;
   			   mensaje='La fecha desde no es válida';
-  		   }	   
+  		   }	
+  		   
+  	   	   if (!colDer.getComponent('comboTiposInversion').isValid()){
+  			   valido=false;
+  			   mensaje='El tipo de inversión no es válido';
+  		   }   
 	       
   		   
   		   if (!valido && muestraVentana){

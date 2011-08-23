@@ -186,12 +186,12 @@ public class ControladorAuxSolicitudes extends AbstractController {
 			return mav;
 			
 		} else if (uri.endsWith("seleccionaSituacionesDominiales")) {
-			int start = Integer.parseInt(request.getParameter("start"));
-			int limit = Integer.parseInt(request.getParameter("limit"));
+			//int start = Integer.parseInt(request.getParameter("start"));
+			//int limit = Integer.parseInt(request.getParameter("limit"));
 			String nombre = request.getParameter("nombre");
 
 			JSONArray datos = new JSONArray();
-			List<SituacionDominial> beans = situacionDominialSvc.selecciona(start, limit, nombre);
+			List<SituacionDominial> beans = situacionDominialSvc.selecciona(0, 100, nombre);
 			int cuenta = situacionDominialSvc.cuenta(nombre);
 			for (SituacionDominial bean : beans) {
 				Map<String, Object> fila = new HashMap<String, Object>();
@@ -208,12 +208,12 @@ public class ControladorAuxSolicitudes extends AbstractController {
 			return mav;
 			
 		} else if (uri.endsWith("seleccionaTiposInversion")) {
-			int start = Integer.parseInt(request.getParameter("start"));
-			int limit = Integer.parseInt(request.getParameter("limit"));
+			//int start = Integer.parseInt(request.getParameter("start"));
+			//int limit = Integer.parseInt(request.getParameter("limit"));
 			String nombre = request.getParameter("nombre");
 
 			JSONArray datos = new JSONArray();
-			List<TipoInversion> beans = tipoInversionSvc.selecciona(start, limit, nombre);
+			List<TipoInversion> beans = tipoInversionSvc.selecciona(0, 100, nombre);
 			int cuenta = tipoInversionSvc.cuenta(nombre);
 			for (TipoInversion bean : beans) {
 				Map<String, Object> fila = new HashMap<String, Object>();
