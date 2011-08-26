@@ -66,10 +66,12 @@ public class Proyecto {
 	public String getSubejecutorId() {
 		return subejecutorId;
 	}
-	public void setSubejecutorId(String subejecutorId) {
-		this.subejecutorId = subejecutorId;
-	}
+	
 
+
+	public void setSubejecutorId(String subejecutorId) {
+	    this.subejecutorId = subejecutorId;
+	}
 	public BigDecimal getPresupuestoEstimado() {
 		return presupuestoEstimado;
 	}

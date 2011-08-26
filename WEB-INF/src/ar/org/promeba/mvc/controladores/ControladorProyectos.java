@@ -15,16 +15,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
+import ar.org.promeba.beans.EqSocXProyecto;
 import ar.org.promeba.beans.EqSocXSolicitud;
+import ar.org.promeba.beans.EsmXProyecto;
 import ar.org.promeba.beans.EsmXSolicitud;
+import ar.org.promeba.beans.Proyecto;
 import ar.org.promeba.beans.Solicitud;
+import ar.org.promeba.beans.SpdXProyecto;
 import ar.org.promeba.beans.SpdXSolicitud;
+import ar.org.promeba.beans.TirXProyecto;
 import ar.org.promeba.beans.TirXSolicitud;
 import ar.org.promeba.mvc.view.JSONView;
+import ar.org.promeba.svc.EqSocXProyectoSvc;
 import ar.org.promeba.svc.EqSocXSolicitudSvc;
+import ar.org.promeba.svc.EsmXProyectoSvc;
 import ar.org.promeba.svc.EsmXSolicitudSvc;
+import ar.org.promeba.svc.ProyectoSvc;
 import ar.org.promeba.svc.SolicitudSvc;
+import ar.org.promeba.svc.SpdXProyectoSvc;
 import ar.org.promeba.svc.SpdXSolicitudSvc;
+import ar.org.promeba.svc.TirXProyectoSvc;
 import ar.org.promeba.svc.TirXSolicitudSvc;
 import ar.org.promeba.util.json.JSONArray;
 import ar.org.promeba.util.json.JSONObject;
@@ -32,19 +42,19 @@ import ar.org.promeba.util.json.JSONObject;
 public class ControladorProyectos extends AbstractController {
 	
 	@Autowired
-	private SolicitudSvc solicitudSvc;
+	private ProyectoSvc proyectoSvc;
 
 	@Autowired
-	private EqSocXSolicitudSvc eqSocXSolicitudSvc;
+	private EqSocXProyectoSvc eqSocXProyectoSvc;
 	
 	@Autowired
-	private SpdXSolicitudSvc spdXSolicitudSvc;
+	private SpdXProyectoSvc spdXProyectoSvc;
 	
 	@Autowired
-	private EsmXSolicitudSvc esmXSolicitudSvc;
+	private EsmXProyectoSvc esmXProyectoSvc;
 	
 	@Autowired
-	private TirXSolicitudSvc tirXSolicitudSvc;
+	private TirXProyectoSvc tirXProyectoSvc;
 	
 	
 
@@ -69,12 +79,14 @@ public class ControladorProyectos extends AbstractController {
 			
 			
 			JSONArray datos=new JSONArray();
-			List<Solicitud> beans=solicitudSvc.selecciona(start, limit, subejecutorId, estado, provinciaId, regionId );
-			int cuenta=solicitudSvc.cuenta(subejecutorId, estado, provinciaId, regionId );
-			for (Solicitud bean : beans) {
+			List<Proyecto> beans=proyectoSvc.selecciona(start, limit, subejecutorId, estado, provinciaId, regionId );
+			int cuenta=proyectoSvc.cuenta(subejecutorId, estado, provinciaId, regionId );
+			for (Proyecto bean : beans) {
 				Map<String, Object> fila=new HashMap<String, Object>();
 				fila.put("id", bean.getId());
 				fila.put("descripcion", bean.getDescripcion());
+				fila.put("solicitudId", bean.getSolicitudId());
+				fila.put("solicitudDescripcion", bean.getSolicitudDescripcion());
 				fila.put("estado", bean.getEstado());
 				fila.put("subejecutorId", bean.getSubejecutorId());
 				fila.put("subejecutorNombre", bean.getSubejecutorNombre());
@@ -82,10 +94,6 @@ public class ControladorProyectos extends AbstractController {
 				fila.put("fechaHasta", bean.getFechaHasta());
 				fila.put("presupuestoEstimado", bean.getPresupuestoEstimado());
 				fila.put("cantidadLotes", bean.getCantidadLotes());
-				fila.put("fechaIngresoPA", bean.getFechaIngresoPA());
-				fila.put("fechaIngresoPGEP", bean.getFechaIngresoPGEP());
-				fila.put("fechaIngresoPOA", bean.getFechaIngresoPOA());
-				fila.put("vinculo", bean.getLink());
 				fila.put("situacionDominialId", bean.getSituacionDominialId());
 				fila.put("situacionDominialNombre", bean.getSituacionDominialNombre());
 				fila.put("tipoInversionId", bean.getTipoInversionId());
@@ -101,8 +109,8 @@ public class ControladorProyectos extends AbstractController {
 			return mav;
 			
 		}else if (uri.endsWith("inserta")){
-			
 			String descripcion=request.getParameter("descripcion");
+		        String solicitudId=request.getParameter("solicitudId");
 			String estado=request.getParameter("estado");
 			String subejecutorId=request.getParameter("subejecutorId");
 			String fechaDesde=request.getParameter("fechaDesde");
@@ -116,11 +124,11 @@ public class ControladorProyectos extends AbstractController {
 			String situacionDominialId=request.getParameter("situacionDominialId");
 			String tipoInversionId=request.getParameter("tipoInversionId");
 			
-			Solicitud bean=new Solicitud();
+			Proyecto bean=new Proyecto();
 			bean.setDescripcion(descripcion);
+			bean.setSolicitudId(solicitudId);
 			bean.setEstado(estado);
 			bean.setSubejecutorId(subejecutorId);
-			bean.setLink(vinculo);
 			bean.setSituacionDominialId(situacionDominialId);
 			bean.setTipoInversionId(tipoInversionId);
 			
@@ -130,22 +138,13 @@ public class ControladorProyectos extends AbstractController {
 			if (!StringUtils.isEmpty(fechaHasta)){
 				bean.setFechaHasta(df.parse(fechaHasta));
 			}
-			if (!StringUtils.isEmpty(fechaIngresoPA)){
-				bean.setFechaIngresoPA(df.parse(fechaIngresoPA));
-			}
-			if (!StringUtils.isEmpty(fechaIngresoPOA)){
-				bean.setFechaIngresoPOA(df.parse(fechaIngresoPOA));
-			}
-			if (!StringUtils.isEmpty(fechaIngresoPGEP)){
-				bean.setFechaIngresoPGEP(df.parse(fechaIngresoPGEP));
-			}
 			if (!StringUtils.isEmpty(presupuestoEstimado)){
 				bean.setPresupuestoEstimado(BigDecimal.valueOf(Double.parseDouble(presupuestoEstimado)));
 			}
 			if (!StringUtils.isEmpty(cantidadLotes)){
 				bean.setCantidadLotes(Integer.parseInt(cantidadLotes));
 			}
-			solicitudSvc.inserta(bean);
+			proyectoSvc.inserta(bean);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -158,6 +157,7 @@ public class ControladorProyectos extends AbstractController {
 			
 			String id=request.getParameter("solicitudId");
 			String descripcion=request.getParameter("descripcion");
+			String solicitudId=request.getParameter("solicitudId");
 			String estado=request.getParameter("estado");
 			String subejecutorId=request.getParameter("subejecutorId");
 			String fechaDesde=request.getParameter("fechaDesde");
@@ -171,12 +171,12 @@ public class ControladorProyectos extends AbstractController {
 			String situacionDominialId=request.getParameter("situacionDominialId");
 			String tipoInversionId=request.getParameter("tipoInversionId");
 			
-			Solicitud bean=new Solicitud();
+			Proyecto bean=new Proyecto();
 			bean.setId(id);
+			bean.setSolicitudId(solicitudId);
 			bean.setDescripcion(descripcion);
 			bean.setEstado(estado);
 			bean.setSubejecutorId(subejecutorId);
-			bean.setLink(vinculo);
 			bean.setSituacionDominialId(situacionDominialId);
 			bean.setTipoInversionId(tipoInversionId);
 			
@@ -186,15 +186,6 @@ public class ControladorProyectos extends AbstractController {
 			if (!StringUtils.isEmpty(fechaHasta)){
 				bean.setFechaHasta(df.parse(fechaHasta));
 			}
-			if (!StringUtils.isEmpty(fechaIngresoPA)){
-				bean.setFechaIngresoPA(df.parse(fechaIngresoPA));
-			}
-			if (!StringUtils.isEmpty(fechaIngresoPOA)){
-				bean.setFechaIngresoPOA(df.parse(fechaIngresoPOA));
-			}
-			if (!StringUtils.isEmpty(fechaIngresoPGEP)){
-				bean.setFechaIngresoPGEP(df.parse(fechaIngresoPGEP));
-			}
 			if (!StringUtils.isEmpty(presupuestoEstimado)){
 				bean.setPresupuestoEstimado(BigDecimal.valueOf(Double.parseDouble(presupuestoEstimado)));
 			}
@@ -202,7 +193,7 @@ public class ControladorProyectos extends AbstractController {
 				bean.setCantidadLotes(Integer.parseInt(cantidadLotes));
 			}			
 
-			solicitudSvc.actualiza(bean);
+			proyectoSvc.actualiza(bean);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -213,7 +204,7 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("borra")){
 			
 			String id=request.getParameter("id");
-			solicitudSvc.borra(id);
+			proyectoSvc.borra(id);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -224,20 +215,20 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("seleccionaEquipamientosSociales")){
 			int start=Integer.parseInt(request.getParameter("start"));
 			int limit=Integer.parseInt(request.getParameter("limit"));
-			String solicitudId=request.getParameter("valorIdPadre");
+			String proyectoId=request.getParameter("valorIdPadre");
 			
 			JSONArray datos=new JSONArray();
-			List<EqSocXSolicitud> beans=eqSocXSolicitudSvc.seleccionaEqSocXSolicitud(start, limit, solicitudId);
-			for (EqSocXSolicitud bean : beans) {
+			List<EqSocXProyecto> beans=eqSocXProyectoSvc.seleccionaEqSocXProyecto(start, limit, proyectoId);
+			for (EqSocXProyecto bean : beans) {
 				Map<String, Object> fila=new HashMap<String, Object>();
 				fila.put("id", bean.getId());
 				fila.put("eqSocId", bean.getEqSocId());
-				fila.put("solicitudId", bean.getSolicitudId());
+				fila.put("proyectoId", bean.getProyectoId());
 				fila.put("eqSocNombre", bean.getEqSocNombre());
 				fila.put("eqSocXSolicitudDescripcion", bean.getDescripcion());
 				datos.put(fila);
 			}
-			int cuenta=eqSocXSolicitudSvc.cuentaEqSocXSolicitud(solicitudId);
+			int cuenta=eqSocXProyectoSvc.cuentaEqSocXProyecto(proyectoId);
 			JSONObject job=new JSONObject();
 			job.put("total", cuenta);
 			job.put("data", datos);
@@ -248,14 +239,14 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("insertaEquipamientoSocial")){
 			
 			String eqSocId=request.getParameter("eqSocAsignadoId");
-			String solicitudId=request.getParameter("valorIdPadre");
+			String proyectoId=request.getParameter("valorIdPadre");
 			String descripcion=request.getParameter("eqSocXSolicitudDescripcion");
-			EqSocXSolicitud bean=new EqSocXSolicitud();
-			bean.setSolicitudId(solicitudId);
+			EqSocXProyecto bean=new EqSocXProyecto();
+			bean.setProyectoId(proyectoId);
 			bean.setEqSocId(eqSocId);
 			bean.setDescripcion(descripcion);
 			
-			eqSocXSolicitudSvc.inserta(bean);
+			eqSocXProyectoSvc.inserta(bean);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -267,7 +258,7 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("borraEquipamientoSocial")){
 			
 			String id=request.getParameter("id");
-			eqSocXSolicitudSvc.borra(id);
+			eqSocXProyectoSvc.borra(id);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -278,20 +269,20 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("seleccionaServiciosPublicosDisponibles")){
 			int start=Integer.parseInt(request.getParameter("start"));
 			int limit=Integer.parseInt(request.getParameter("limit"));
-			String solicitudId=request.getParameter("valorIdPadre");
+			String proyectoId=request.getParameter("valorIdPadre");
 			
 			JSONArray datos=new JSONArray();
-			List<SpdXSolicitud> beans=spdXSolicitudSvc.seleccionaSpdXSolicitud(start, limit, solicitudId);
-			for (SpdXSolicitud bean : beans) {
+			List<SpdXProyecto> beans=spdXProyectoSvc.seleccionaSpdXProyecto(start, limit, proyectoId);
+			for (SpdXProyecto bean : beans) {
 				Map<String, Object> fila=new HashMap<String, Object>();
 				fila.put("id", bean.getId());
 				fila.put("spdId", bean.getSpdId());
-				fila.put("solicitudId", bean.getSolicitudId());
+				fila.put("proyectoId", bean.getProyectoId());
 				fila.put("spdNombre", bean.getSpdNombre());
 				fila.put("spdXSolicitudDescripcion", bean.getDescripcion());
 				datos.put(fila);
 			}
-			int cuenta=spdXSolicitudSvc.cuentaSpdXSolicitud(solicitudId);
+			int cuenta=spdXProyectoSvc.cuentaSpdXProyecto(proyectoId);
 			JSONObject job=new JSONObject();
 			job.put("total", cuenta);
 			job.put("data", datos);
@@ -302,14 +293,14 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("insertaServicioPublicoDisponible")){
 			
 			String spdId=request.getParameter("spdAsignadoId");
-			String solicitudId=request.getParameter("valorIdPadre");
+			String proyectoId=request.getParameter("valorIdPadre");
 			String descripcion=request.getParameter("spdXSolicitudDescripcion");
-			SpdXSolicitud bean=new SpdXSolicitud();
-			bean.setSolicitudId(solicitudId);
+			SpdXProyecto bean=new SpdXProyecto();
+			bean.setProyectoId(proyectoId);
 			bean.setSpdId(spdId);
 			bean.setDescripcion(descripcion);
 			
-			spdXSolicitudSvc.inserta(bean);
+			spdXProyectoSvc.inserta(bean);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -321,7 +312,7 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("borraServicioPublicoDisponible")){
 			
 			String id=request.getParameter("id");
-			spdXSolicitudSvc.borra(id);
+			spdXProyectoSvc.borra(id);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -335,17 +326,17 @@ public class ControladorProyectos extends AbstractController {
 			String solicitudId=request.getParameter("valorIdPadre");
 			
 			JSONArray datos=new JSONArray();
-			List<EsmXSolicitud> beans=esmXSolicitudSvc.seleccionaEsmXSolicitud(start, limit, solicitudId);
-			for (EsmXSolicitud bean : beans) {
+			List<EsmXProyecto> beans=esmXProyectoSvc.seleccionaEsmXProyecto(start, limit, solicitudId);
+			for (EsmXProyecto bean : beans) {
 				Map<String, Object> fila=new HashMap<String, Object>();
 				fila.put("id", bean.getId());
 				fila.put("esmId", bean.getEsmId());
-				fila.put("solicitudId", bean.getSolicitudId());
+				fila.put("proyectoId", bean.getProyectoId());
 				fila.put("esmNombre", bean.getEsmNombre());
-				fila.put("esmXSolicitudDescripcion", bean.getDescripcion());
+				fila.put("esmXProyectoDescripcion", bean.getDescripcion());
 				datos.put(fila);
 			}
-			int cuenta=esmXSolicitudSvc.cuentaEsmXSolicitud(solicitudId);
+			int cuenta=esmXProyectoSvc.cuentaEsmXProyecto(solicitudId);
 			JSONObject job=new JSONObject();
 			job.put("total", cuenta);
 			job.put("data", datos);
@@ -356,14 +347,14 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("insertaEstadoMensura")){
 			
 			String esmId=request.getParameter("esmAsignadoId");
-			String solicitudId=request.getParameter("valorIdPadre");
+			String proyectoId=request.getParameter("valorIdPadre");
 			String descripcion=request.getParameter("esmXSolicitudDescripcion");
-			EsmXSolicitud bean=new EsmXSolicitud();
-			bean.setSolicitudId(solicitudId);
+			EsmXProyecto bean=new EsmXProyecto();
+			bean.setProyectoId(proyectoId);
 			bean.setEsmId(esmId);
 			bean.setDescripcion(descripcion);
 			
-			esmXSolicitudSvc.inserta(bean);
+			esmXProyectoSvc.inserta(bean);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -375,7 +366,7 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("borraEstadoMensura")){
 			
 			String id=request.getParameter("id");
-			esmXSolicitudSvc.borra(id);
+			esmXProyectoSvc.borra(id);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -386,20 +377,20 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("seleccionaTiposRiesgo")){
 			int start=Integer.parseInt(request.getParameter("start"));
 			int limit=Integer.parseInt(request.getParameter("limit"));
-			String solicitudId=request.getParameter("valorIdPadre");
+			String proyectoId=request.getParameter("valorIdPadre");
 			
 			JSONArray datos=new JSONArray();
-			List<TirXSolicitud> beans=tirXSolicitudSvc.seleccionaTirXSolicitud(start, limit, solicitudId);
-			for (TirXSolicitud bean : beans) {
+			List<TirXProyecto> beans=tirXProyectoSvc.seleccionaTirXProyecto(start, limit, proyectoId);
+			for (TirXProyecto bean : beans) {
 				Map<String, Object> fila=new HashMap<String, Object>();
 				fila.put("id", bean.getId());
 				fila.put("tirId", bean.getTirId());
-				fila.put("solicitudId", bean.getSolicitudId());
+				fila.put("proyectoId", bean.getProyectoId());
 				fila.put("tirNombre", bean.getTirNombre());
-				fila.put("tirXSolicitudDescripcion", bean.getDescripcion());
+				fila.put("tirXProyectoDescripcion", bean.getDescripcion());
 				datos.put(fila);
 			}
-			int cuenta=tirXSolicitudSvc.cuentaTirXSolicitud(solicitudId);
+			int cuenta=tirXProyectoSvc.cuentaTirXProyecto(proyectoId);
 			JSONObject job=new JSONObject();
 			job.put("total", cuenta);
 			job.put("data", datos);
@@ -410,14 +401,14 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("insertaTipoRiesgo")){
 			
 			String tirId=request.getParameter("tirAsignadoId");
-			String solicitudId=request.getParameter("valorIdPadre");
-			String descripcion=request.getParameter("tirXSolicitudDescripcion");
-			TirXSolicitud bean=new TirXSolicitud();
-			bean.setSolicitudId(solicitudId);
+			String proyectoId=request.getParameter("valorIdPadre");
+			String descripcion=request.getParameter("tirXProyectoDescripcion");
+			TirXProyecto bean=new TirXProyecto();
+			bean.setProyectoId(proyectoId);
 			bean.setTirId(tirId);
 			bean.setDescripcion(descripcion);
 			
-			tirXSolicitudSvc.inserta(bean);
+			tirXProyectoSvc.inserta(bean);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);
@@ -429,7 +420,7 @@ public class ControladorProyectos extends AbstractController {
 		}else if (uri.endsWith("borraTipoRiesgo")){
 			
 			String id=request.getParameter("id");
-			tirXSolicitudSvc.borra(id);
+			tirXProyectoSvc.borra(id);
 			
 			JSONObject job=new JSONObject();
 			job.put("success", true);

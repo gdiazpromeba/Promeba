@@ -25,6 +25,7 @@
                 <entry key="subejecutores/*"><ref bean="controladorSubejecutores"/></entry>
                 <entry key="geografia/*"><ref bean="controladorGeografia"/></entry>
                 <entry key="solicitudes/*"><ref bean="controladorSolicitudes"/></entry>
+                <entry key="proyectos/*"><ref bean="controladorProyectos"/></entry>
                 <entry key="areasGeograficas/*"><ref bean="controladorAreasGeograficas"/></entry>
                 <entry key="cargos/*"><ref bean="controladorCargos"/></entry>
                 <entry key="mesasGestion/*"><ref bean="controladorMesasGestion"/></entry>
@@ -60,6 +61,8 @@
     </bean>
     
     <bean id="controladorSolicitudes" class="ar.org.promeba.mvc.controladores.ControladorSolicitudes"/>
+    
+    <bean id="controladorProyectos" class="ar.org.promeba.mvc.controladores.ControladorProyectos"/>
     
     <bean id="controladorAreasGeograficas" class="ar.org.promeba.mvc.controladores.ControladorAreasGeograficas">
         <property name="svc" ref="areaGeograficaSvc"/>
