@@ -3,7 +3,7 @@ ComboServiciosPublicosDisponibles = Ext.extend(ComboFijo, {
     constructor : function(config) {
       ComboServiciosPublicosDisponibles.superclass.constructor.call(this, Ext.apply({
         pageSize: 0,
-        fieldLabel: 'Equip. Social',
+        fieldLabel: 'Serv. Públicos',
         width: 280, 
         store: new Ext.data.JsonStore({
           url: '/prototipo/svc/conector/auxSolicitudes/seleccionaServiciosPublicosDisponibles',

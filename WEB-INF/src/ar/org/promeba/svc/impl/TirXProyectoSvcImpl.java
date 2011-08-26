@@ -30,10 +30,6 @@ public class TirXProyectoSvcImpl implements TirXProyectoSvc {
 	/* (non-Javadoc)
 	 * @see ar.org.promeba.svc.TirXProyectoSvc#modifica(ar.org.promeba.beans.TirXProyecto)
 	 */
-	/* (non-Javadoc)
-	 * @see ar.org.promeba.svc.impl.TirXProyectoSvc#modifica(ar.org.promeba.beans.TirXProyecto)
-	 */
-	@Override
 	@Override
 	public void modifica(TirXProyecto bean) {
 		tirXProyectoDao.modifica(bean);
@@ -43,10 +39,6 @@ public class TirXProyectoSvcImpl implements TirXProyectoSvc {
 	/* (non-Javadoc)
 	 * @see ar.org.promeba.svc.TirXProyectoSvc#seleccionaTirXProyecto(int, int, java.lang.String)
 	 */
-	/* (non-Javadoc)
-	 * @see ar.org.promeba.svc.impl.TirXProyectoSvc#seleccionaTirXProyecto(int, int, java.lang.String)
-	 */
-	@Override
 	@Override
 	public List<TirXProyecto> seleccionaTirXProyecto(int offset, int limit, String proyectoId) {
 		return tirXProyectoDao.seleccionaTirXProyecto(offset, limit, proyectoId);
@@ -57,10 +49,6 @@ public class TirXProyectoSvcImpl implements TirXProyectoSvc {
 	/* (non-Javadoc)
 	 * @see ar.org.promeba.svc.TirXProyectoSvc#cuentaTirXProyecto(java.lang.String)
 	 */
-	/* (non-Javadoc)
-	 * @see ar.org.promeba.svc.impl.TirXProyectoSvc#cuentaTirXProyecto(java.lang.String)
-	 */
-	@Override
 	@Override
 	public int cuentaTirXProyecto(String proyectoId) {
 		return tirXProyectoDao.cuentaTirXProyecto(proyectoId);
@@ -71,10 +59,6 @@ public class TirXProyectoSvcImpl implements TirXProyectoSvc {
 	/* (non-Javadoc)
 	 * @see ar.org.promeba.svc.TirXProyectoSvc#borra(java.lang.String)
 	 */
-	/* (non-Javadoc)
-	 * @see ar.org.promeba.svc.impl.TirXProyectoSvc#borra(java.lang.String)
-	 */
-	@Override
 	@Override
 	public void borra(String id) {
 		tirXProyectoDao.borra(id);

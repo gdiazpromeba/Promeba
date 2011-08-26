@@ -84,6 +84,15 @@
     
     <bean id="spdXSolicitudSvc" class="ar.org.promeba.svc.impl.SpdXSolicitudSvcImpl"/>
     
+    <bean id="eqSocXProyectoSvc" class="ar.org.promeba.svc.impl.EqSocXProyectoSvcImpl"/>
+    
+    <bean id="tirXProyectoSvc" class="ar.org.promeba.svc.impl.TirXProyectoSvcImpl"/>
+    
+    <bean id="esmXProyectoSvc" class="ar.org.promeba.svc.impl.EsmXProyectoSvcImpl"/>
+    
+    <bean id="spdXProyectoSvc" class="ar.org.promeba.svc.impl.SpdXProyectoSvcImpl"/>
+
+    
     <bean id="proyectoSvc" class="ar.org.promeba.svc.impl.ProyectoSvcImpl"/>
         
 </beans>

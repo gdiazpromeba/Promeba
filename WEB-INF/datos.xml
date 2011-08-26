@@ -79,6 +79,15 @@
     
     <bean id="poligonoRegionDao" class="ar.org.promeba.dao.impl.PoligonoRegionDaoImpl"/>
     
-    <bean id="proyectoDao" class="ar.org.promeba.dao.impl.ProyectoDaoImpl"/>    
+    <bean id="proyectoDao" class="ar.org.promeba.dao.impl.ProyectoDaoImpl"/>
+    
+    <bean id="eqSocXProyectoDao" class="ar.org.promeba.dao.impl.EqSocXProyectoDaoImpl"/>
+    
+    <bean id="tirXProyectoDao" class="ar.org.promeba.dao.impl.TirXProyectoDaoImpl"/>
+    
+    <bean id="spdXProyectoDao" class="ar.org.promeba.dao.impl.SpdXProyectoDaoImpl"/>
+    
+    <bean id="esmXProyectoDao" class="ar.org.promeba.dao.impl.EsmXProyectoDaoImpl"/>
+        
     
 </beans>

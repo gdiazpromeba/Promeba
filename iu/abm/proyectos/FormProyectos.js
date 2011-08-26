@@ -1,25 +1,27 @@
-FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
+FormProyectos = Ext.extend(PanelFormCabeceraAbm, {
   
   constructor : function(config) {
-    FormSolicitudes.superclass.constructor.call(this, Ext.apply({
-  		id: 'formSolicitudes',
-  		prefijo: 'formSolicitudes',
-  		nombreElementoId: 'solicitudId',
-  	    urlAgregado: '/prototipo/svc/conector/solicitudes/inserta',
-  	    urlModificacion: '/prototipo/svc/conector/solicitudes/actualiza',
-  	    urlBorrado: '/prototipo/svc/conector/solicitudes/borra',
+    FormProyectos.superclass.constructor.call(this, Ext.apply({
+  		id: 'formProyectos',
+  		prefijo: 'formProyectos',
+  		nombreElementoId: 'proyectoId',
+  	    urlAgregado: '/prototipo/svc/conector/proyectos/inserta',
+  	    urlModificacion: '/prototipo/svc/conector/proyectos/actualiza',
+  	    urlBorrado: '/prototipo/svc/conector/proyectos/borra',
   	    layout: 'column',
   		items: [
+          {xtype: 'hidden', name: 'proyectoId', id: 'proyectoId', itemId: 'proyectoId'},
           {xtype: 'hidden', name: 'solicitudId', id: 'solicitudId', itemId: 'solicitudId'},
           {xtype: 'fieldset', itemId : 'colIzq', columnWidth: 0.5, layout: 'form', border: false, 
            items: [
             {fieldLabel: 'Descripcion',  xtype: 'textfield', itemId: 'descripcion', name: 'descripcion', width: 220, allowBlank: false},
+            {fieldLabel: 'Solicitud',  xtype: 'textfield', itemId: 'solicitudDescripcion', name: 'solicitudDescripcion', width: 220, allowBlank: false},
             {fieldLabel: 'Lotes',  xtype: 'numberfield', itemId: 'cantidadLotes', name: 'cantidadLotes', allowDecimals: false, width: 80, allowBlank: false},
             {fieldLabel: 'Monto estimado',  xtype: 'dinero', itemId: 'presupuestoEstimado', name: 'presupuestoEstimado', width: 80, allowBlank: false},
 	        {fieldLabel: 'Estado', xtype: 'combo', id: 'comboEstados', name: 'comboEstados', itemId: 'comboEstados', ref: '../comboEstados', allowBlank: false, 
 	          store: new Ext.data.SimpleStore({
 	          fields: ['descripcionEstado'],
-	    	     data: [["Seleccionada"],["Con proyecto"]]
+	    	     data: [["Viabilidad en estudio"],["Viabilidad en documentada"], ["Viabilidad aprobada"], ["Viabilidad condicional"], ["En formulación"]]
 	    	    }),
               displayField: 'descripcionEstado', valueField: 'descripcionEstado', selectOnFocus: true, mode: 'local', typeAhead: false, editable: false,
               hiddenName: 'estado', triggerAction: 'all'
@@ -31,21 +33,24 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
             items: [
               {fieldLabel: 'Desde',  itemId: 'fechaDesde', name: 'fechaDesde', xtype : 'datefield', format: 'd/m/Y', allowBlank : false},
               {fieldLabel: 'Hasta',  itemId: 'fechaHasta', name: 'fechaHasta', xtype : 'datefield', format: 'd/m/Y', allowBlank : true},
-              {fieldLabel: 'Ingreso POA',  itemId: 'fechaIngresoPOA', name: 'fechaIngresoPOA', xtype : 'datefield', format: 'd/m/Y', allowBlank : true},
-              {fieldLabel: 'Ingreso PGEP',  itemId: 'fechaIngresoPGEP', name: 'fechaIngresoPGEP', xtype : 'datefield', format: 'd/m/Y', allowBlank : true},
-              {fieldLabel: 'Ingreso PA',  itemId: 'fechaIngresoPA', name: 'fechaIngresoPA', xtype : 'datefield', format: 'd/m/Y', allowBlank : true},
-              new ControlSuba({fieldLabel: 'Vínculo', width: 200, itemId: 'vinculoSolicitud'}),
               {xtype: 'combosituacionesdominiales', itemId: 'comboSituacionesDominiales', hiddenName: 'situacionDominialId', hiddenId: 'situacionDominialId', allowBlank: false},
               {xtype: 'combotiposinversion', itemId: 'comboTiposInversion', hiddenName: 'tipoInversionId', hiddenId: 'tipoInversionId', allowBlank: false},
             ]
           }//del fieldset 'colDer'
-      ],      
-      
-  	   
+      ], 
+      listeners: {
+          beforerender: function(me) {
+            //oculto botAgregar
+            me.buttons[0].setVisible(false);
+            return true;
+          }
+ 	  },     
   	  pueblaDatosEnForm : function(record){
   	  	 var colIzq=this.getComponent('colIzq');
-         this.getComponent('solicitudId').setValue(record.id);
+         this.getComponent('proyectoId').setValue(record.id);
+         this.getComponent('solicitudId').setValue(record.get('solicitudId'));
          colIzq.getComponent('descripcion').setValue(record.get('descripcion'));
+         colIzq.getComponent('solicitudDescripcion').setValue(record.get('solicitudDescripcion'));
          colIzq.getComponent('presupuestoEstimado').setValue(record.get('presupuestoEstimado'));
          colIzq.getComponent('cantidadLotes').setValue(record.get('cantidadLotes'));
          colIzq.getComponent('comboEstados').setValue(record.get('estado'));
@@ -55,10 +60,6 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
          var colDer=this.getComponent('colDer');
          colDer.getComponent('fechaDesde').setValue(record.data['fechaDesde']);
          colDer.getComponent('fechaHasta').setValue(record.data['fechaHasta']);
-         colDer.getComponent('fechaIngresoPOA').setValue(record.data['fechaIngresoPOA']);
-         colDer.getComponent('fechaIngresoPA').setValue(record.data['fechaIngresoPA']);
-         colDer.getComponent('fechaIngresoPGEP').setValue(record.data['fechaIngresoPGEP']);
-         colDer.getComponent('vinculoSolicitud').setValue(record.data['vinculo']);
          colDer.getComponent('comboSituacionesDominiales').setRawValue(record.get('situacionDominialNombre'));
          Ext.get('situacionDominialId').dom.value=record.get('situacionDominialId');
          colDer.getComponent('comboTiposInversion').setRawValue(record.get('tipoInversionNombre'));
@@ -69,8 +70,10 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
   	   },
   	   
   	   pueblaFormEnRegistro : function(record){
-  	     record.id=  this.getComponent('solicitudId').getValue();
-  	     var colIzq=this.getComponent('colIzq');
+  	     record.id=  this.getComponent('proyectoId').getValue();
+  	     record.data['solicitudDescripcion']=  this.getComponent('solicitudId').getValue();
+  	     record.data['solicitudDescripcion']=  colIzq.getComponent('solicitudDescripcion').getValue();
+    	 var colIzq=this.getComponent('colIzq');
   	     record.data['descripcion']=  colIzq.getComponent('descripcion').getValue();
   	     record.data['estado']=  Ext.get('estado').dom.value;
   	     record.data['subejecutorId']=  Ext.get('estado').dom.value;
@@ -80,10 +83,6 @@ FormSolicitudes = Ext.extend(PanelFormCabeceraAbm, {
   	     var colDer=this.getComponent('colDer');
     	 record.data['fechaDesde']=  colDer.getComponent('fechaDesde').getValue();
     	 record.data['fechaHasta']=  colDer.getComponent('fechaHasta').getValue();
-    	 record.data['fechaIngresoPOA']=  colDer.getComponent('fechaIngresoPOA').getValue();
-    	 record.data['fechaIngresoPA']=  colDer.getComponent('fechaIngresoPA').getValue();
-    	 record.data['fechaIngresoPGEP']=  colDer.getComponent('fechaIngresoPGEP').getValue();
-    	 record.data['vinculo']=  colDer.getComponent('vinculoSolicitud').getValue();
     	 record.data['situacionDominialNombre']=  colDer.getComponent('comboSituacionesDominiales').getRawValue();
     	 record.data['situacionDominialId'] = Ext.get('situacionDominialId').dom.value;
          record.data['tipoInversionNombre']=  colDer.getComponent('comboTiposInversion').getRawValue();

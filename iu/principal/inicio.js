@@ -86,7 +86,7 @@ Ext.onReady( function() {
 		store:  new Ext.data.SimpleStore({
 			fields:['columna1', 'columna2'],
 			data:  [
-			[['argentina.png', 'Selección', creaVentanaSolicitudes]]
+			[['argentina.png', 'Solicitudes', creaVentanaSolicitudes], ['argentina.png', 'Proyectos', creaVentanaProyectos]]
 		]
 		})	
 	});
